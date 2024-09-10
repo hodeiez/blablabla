@@ -13,3 +13,4 @@ public class Sensor {
         isActivated = activated;
     }
 }
+
