@@ -15,10 +15,10 @@ public class AlarmOperator implements AlarmChecker{
     }
 
     public void activateHouseAllSensors(String selectedHouseId) {
-        this.getHouse(selectedHouseId).getRooms().forEach(room -> room.getDoors().forEach(door -> door.setActivated(true)));
+        this.getHouse(selectedHouseId).getRooms().forEach(room -> room.getSensors().forEach(door -> door.setActivated(true)));
     }
     public void deActivateHouseAllSensors(String selectedHouseId) {
-       this.getHouse(selectedHouseId).getRooms().forEach(room -> room.getDoors().forEach(door -> door.setActivated(false)));
+       this.getHouse(selectedHouseId).getRooms().forEach(room -> room.getSensors().forEach(door -> door.setActivated(false)));
     }
     public void activateAllSensorsInRoom(String selecteHouseId, String selectedRoom) {
         this.operateAllSensorsInRoom(selecteHouseId,selectedRoom,true);
@@ -27,7 +27,7 @@ public class AlarmOperator implements AlarmChecker{
         this.operateAllSensorsInRoom(selecteHouseId,selectedRoom,false);
     }
    private void operateAllSensorsInRoom(String selecteHouseId, String selectedRoom, boolean activate) {
-        this.getRoomAtHouse(selecteHouseId, selectedRoom).getDoors().forEach(door -> door.setActivated(activate));
+        this.getRoomAtHouse(selecteHouseId, selectedRoom).getSensors().forEach(door -> door.setActivated(activate));
     }
 
     public Room getRoomAtHouse(String selectedHouseId, String selectedRoom) {
@@ -37,11 +37,11 @@ public class AlarmOperator implements AlarmChecker{
     public void checkAlarm() {
         this.houses.forEach(house -> {
                 house.getRooms().forEach(room ->{
-            room.getDoors().forEach(door -> {
-                if (door.isDetected()) {
+            room.getSensors().forEach(sensor -> {
+                if (sensor.isDetected()) {
                     System.out.println("Door open at "+ house.getHouseId() + "house in room -> " + room.getRoomName());
                 } else {
-                    System.out.println("check Alarm");
+                    System.out.println("check Alarm for " + sensor.getClass().getName());
                 }
             });
         });
@@ -49,11 +49,11 @@ public class AlarmOperator implements AlarmChecker{
     }
     @Override
     public void deActivateAll() {
-        this.houses.forEach(house -> house.getRooms().forEach(room -> room.getDoors().forEach(door -> door.setActivated(false))));
+        this.houses.forEach(house -> house.getRooms().forEach(room -> room.getSensors().forEach(door -> door.setActivated(false))));
     }
     @Override
     public void activateAll() {
-        this.houses.forEach(house -> house.getRooms().forEach(room -> room.getDoors().forEach(door -> door.setActivated(true))));
+        this.houses.forEach(house -> house.getRooms().forEach(room -> room.getSensors().forEach(door -> door.setActivated(true))));
     }
 
 

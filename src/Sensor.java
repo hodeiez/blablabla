@@ -22,5 +22,8 @@ public class Sensor {
     public void setDetected(boolean detected) {
         this.detected = detected;
     }
+
+    public void setOpen(boolean b) {
+    }
 }
 

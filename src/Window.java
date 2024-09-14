@@ -1,7 +1,7 @@
-public class Door extends SensorOpenClose {
+public class Window extends SensorOpenClose {
     private boolean isOpen;
 
-    public Door(boolean isActivated, boolean isOpen) {
+    public Window(boolean isActivated, boolean isOpen) {
         super(isActivated);
         this.isOpen = isOpen;
     }
@@ -10,7 +10,7 @@ public class Door extends SensorOpenClose {
 
         return isOpen;
     }
-    @Override
+
     public void setOpen(boolean open) {
         isOpen = open;
         if(this.isOpen){
