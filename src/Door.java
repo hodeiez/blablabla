@@ -1,5 +1,5 @@
 public class Door extends Sensor {
-    boolean isOpen;
+    private boolean isOpen;
 
     public Door(boolean isActivated, boolean isOpen) {
         super(isActivated);
