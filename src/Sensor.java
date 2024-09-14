@@ -1,5 +1,7 @@
 public class Sensor {
-    boolean isActivated;
+    private boolean isActivated;
+    private boolean detected;
+
 
     public boolean isActivated() {
         return isActivated;
@@ -11,6 +13,14 @@ public class Sensor {
 
     public void setActivated(boolean activated) {
         isActivated = activated;
+    }
+
+    public boolean isDetected() {
+        return detected;
+    }
+
+    public void setDetected(boolean detected) {
+        this.detected = detected;
     }
 }
 

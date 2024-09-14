@@ -13,7 +13,7 @@ public class Main {
         while (true) {
             Thread.sleep(1000);
             bu++;
-            house.checkAlarm();
+           operator.checkAlarm();
             if (bu == 3) {
                 house.getRooms().get(0).getDoors().get(0).setOpen(true);
             }
