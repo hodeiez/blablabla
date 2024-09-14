@@ -3,7 +3,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        House house = new House(List.of(new Room("Redrum",List.of(new Door(false, false),new Window(false,false)))),"MarkDark");
+        House house = new House(List.of(new Room("Redrum",List.of(new SensorOpenClose("1","Door",false),new SensorOpenClose("2","Window",false)))),"MarkDark");
+
+        house.addRoom(new Room("Dionisos", List.of(new SensorMovement(true,false,"3","Room",false))));
+
         AlarmOperator operator = new AlarmOperator();
         operator.addHousetoOperator(house);
         operator.activateHouseAllSensors(house.getHouseId());
@@ -15,8 +18,19 @@ public class Main {
             bu++;
            operator.checkAlarm();
             if (bu == 3) {
-                house.getRooms().get(0).getSensors().get(0).setOpen(true);
+                house.getRooms().get(0).getSensors().get(0).setObjectActionated();
             }
+            if (bu == 5) {
+                house.getRooms().get(0).getSensors().get(1).setObjectActionated();
+            }
+            if (bu == 6) {
+                house.getRooms().get(1).getSensors().get(0).setObjectActionated();
+            }
+            if (bu == 7){
+                operator.deActivateAllSensorsInRoom("MarkDark","Redrum");
+            }
+
+
 
 
         }

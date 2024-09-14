@@ -1,15 +1,23 @@
-public class Sensor {
-    private boolean isActivated;
-    private boolean detected;
+public abstract class Sensor {
+    boolean isActivated;
+    boolean detected;
+    String objectId;
+    String objectType;
+    String sensorType;
+
+    public Sensor(boolean isActivated, boolean detected, String objectId, String objectType, String sensorType) {
+        this.isActivated = isActivated;
+        this.detected = detected;
+        this.objectId = objectId;
+        this.objectType = objectType;
+        this.sensorType = sensorType;
+    }
 
 
     public boolean isActivated() {
         return isActivated;
     }
 
-    public Sensor(boolean isActivated) {
-        this.isActivated = isActivated;
-    }
 
     public void setActivated(boolean activated) {
         isActivated = activated;
@@ -19,11 +27,14 @@ public class Sensor {
         return detected;
     }
 
-    public void setDetected(boolean detected) {
-        this.detected = detected;
-    }
+    public void setObjectActionated(){
 
-    public void setOpen(boolean b) {
+    }
+    public String getIdentification(){
+        return "Sensor not attached to object";
+    }
+    public String getSensorType() {
+        return "Sensor type not defined";
     }
 }
 

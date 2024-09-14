@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class AlarmOperator implements AlarmChecker{
+public class AlarmOperator {
     List<House> houses;
 
     public void addHousetoOperator (House house) {
@@ -33,25 +33,25 @@ public class AlarmOperator implements AlarmChecker{
     public Room getRoomAtHouse(String selectedHouseId, String selectedRoom) {
        return this.getHouse(selectedHouseId).getRooms().stream().filter(room -> room.getRoomName().equals(selectedRoom)).findFirst().get();
     }
-    @Override
+
     public void checkAlarm() {
         this.houses.forEach(house -> {
                 house.getRooms().forEach(room ->{
             room.getSensors().forEach(sensor -> {
                 if (sensor.isDetected()) {
-                    System.out.println("Door open at "+ house.getHouseId() + "house in room -> " + room.getRoomName());
+                    System.out.println( sensor.getIdentification() + " activated by " + sensor.getSensorType() + " at "+ house.getHouseId() + " house in room -> " + room.getRoomName());
                 } else {
-                    System.out.println("check Alarm for " + sensor.getClass().getName());
+                    System.out.println("check Alarm for " + sensor.getIdentification());
                 }
             });
         });
     });
     }
-    @Override
+
     public void deActivateAll() {
         this.houses.forEach(house -> house.getRooms().forEach(room -> room.getSensors().forEach(door -> door.setActivated(false))));
     }
-    @Override
+
     public void activateAll() {
         this.houses.forEach(house -> house.getRooms().forEach(room -> room.getSensors().forEach(door -> door.setActivated(true))));
     }
