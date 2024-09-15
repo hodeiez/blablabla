@@ -3,8 +3,8 @@ package sensors;
 public class SensorMovement extends Sensor{
     boolean bastardMoving;
 
-    public SensorMovement(boolean isActivated, boolean detected, String objectId, String objectType, boolean bastardMoving) {
-        super(isActivated, detected, objectId, objectType, "motion");
+    public SensorMovement(boolean isActivated, boolean detected, String objectId, String objectType, boolean bastardMoving,String placedAt) {
+        super(isActivated, detected, objectId, objectType, SensorType.MOTION.toString(), placedAt);
         this.bastardMoving = bastardMoving;
     }
 

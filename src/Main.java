@@ -1,18 +1,13 @@
 import configurator.HouseConfigurator;
 import house.House;
-import house.Room;
-import sensors.SensorMovement;
-import sensors.SensorOpenClose;
+import sensors.ObjectType;
 
 import java.util.List;
 
-
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-
-        House house = new House(List.of(new Room("Redrum",List.of(new SensorOpenClose("1","Door",false),new SensorOpenClose("2","Window",false)))),"MarkDark");
-
-        house.addRoom(new Room("Dionisos", List.of(new SensorMovement(true,false,"3","house.Room",false))));
+        House house = HouseConfigurator.buildHouse(List.of(HouseConfigurator.buildDoorWindowSensor("1", ObjectType.DOOR.toString(), "Redrum")
+                ,HouseConfigurator.buildMovementSensor(false,false,"2",ObjectType.ROOM.toString(), "Redrum")),"Böllnas \uD83D\uDE00");
 
         AlarmOperator operator = new AlarmOperator();
         operator.addHousetoOperator(house);
@@ -25,16 +20,16 @@ public class Main {
             bu++;
            operator.checkAlarm();
             if (bu == 3) {
-                house.getRooms().get(0).getSensors().get(0).setObjectActionated();
+                house.getSensors().get(0).setObjectActionated();
             }
             if (bu == 5) {
-                house.getRooms().get(0).getSensors().get(1).setObjectActionated();
+                house.getSensors().get(1).setObjectActionated();
             }
             if (bu == 6) {
-                house.getRooms().get(1).getSensors().get(0).setObjectActionated();
+                house.getSensors().get(0).setObjectActionated();
             }
             if (bu == 7){
-                operator.deActivateAllSensorsInRoom("MarkDark","Redrum");
+                operator.deActivateAllSensorsInRoom("Böllnas \uD83D\uDE00","Redrum");
             }
 
 

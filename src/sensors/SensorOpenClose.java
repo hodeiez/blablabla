@@ -3,8 +3,8 @@ package sensors;
 public class SensorOpenClose extends Sensor{
     boolean open;
 
-    public SensorOpenClose(String id, String objectType,boolean activated) {
-        super(activated,false,id,objectType,"open");
+    public SensorOpenClose(String id, String objectType,boolean activated,String placedAt) {
+        super(activated,false,id,objectType,SensorType.OPEN.toString(), placedAt);
     }
 
     @Override

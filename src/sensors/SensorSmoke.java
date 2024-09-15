@@ -3,8 +3,8 @@ package sensors;
 public class SensorSmoke extends Sensor{
  boolean smoke;
 
-    public SensorSmoke(boolean isActivated, boolean detected, String objectId, String objectType, String sensorType,boolean smoke) {
-        super(isActivated, detected, objectId, objectType, sensorType);
+    public SensorSmoke(boolean isActivated, boolean detected, String objectId,boolean smoke,String placedAt) {
+        super(isActivated, detected, objectId, ObjectType.ROOM.toString(),SensorType.SMOKE.toString(),placedAt);
         this.smoke = smoke;
     }
 

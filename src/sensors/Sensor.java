@@ -6,13 +6,15 @@ public abstract class Sensor {
     String objectId;
     String objectType;
     String sensorType;
+    String placedAt;
 
-    public Sensor(boolean isActivated, boolean detected, String objectId, String objectType, String sensorType) {
+    public Sensor(boolean isActivated, boolean detected, String objectId, String objectType, String sensorType, String placedAt) {
         this.isActivated = isActivated;
         this.detected = detected;
         this.objectId = objectId;
         this.objectType = objectType;
         this.sensorType = sensorType;
+        this.placedAt = placedAt;
     }
 
 
@@ -37,6 +39,9 @@ public abstract class Sensor {
     }
     public String getSensorType() {
         return "sensors.Sensor type not defined";
+    }
+    public String getPlacedAt() {
+        return this.placedAt;
     }
 }
 
