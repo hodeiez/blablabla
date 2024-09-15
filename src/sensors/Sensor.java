@@ -1,3 +1,5 @@
+package sensors;
+
 public abstract class Sensor {
     boolean isActivated;
     boolean detected;
@@ -31,10 +33,10 @@ public abstract class Sensor {
 
     }
     public String getIdentification(){
-        return "Sensor not attached to object";
+        return "sensors.Sensor not attached to object";
     }
     public String getSensorType() {
-        return "Sensor type not defined";
+        return "sensors.Sensor type not defined";
     }
 }
 

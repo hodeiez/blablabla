@@ -1,3 +1,7 @@
+package house;
+
+import sensors.Sensor;
+
 import java.util.List;
 
 public class Room {

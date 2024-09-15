@@ -1,3 +1,6 @@
+import house.House;
+import house.Room;
+
 import java.util.List;
 
 public class AlarmOperator {

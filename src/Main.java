@@ -1,11 +1,18 @@
+import configurator.HouseConfigurator;
+import house.House;
+import house.Room;
+import sensors.SensorMovement;
+import sensors.SensorOpenClose;
+
 import java.util.List;
 
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
+
         House house = new House(List.of(new Room("Redrum",List.of(new SensorOpenClose("1","Door",false),new SensorOpenClose("2","Window",false)))),"MarkDark");
 
-        house.addRoom(new Room("Dionisos", List.of(new SensorMovement(true,false,"3","Room",false))));
+        house.addRoom(new Room("Dionisos", List.of(new SensorMovement(true,false,"3","house.Room",false))));
 
         AlarmOperator operator = new AlarmOperator();
         operator.addHousetoOperator(house);

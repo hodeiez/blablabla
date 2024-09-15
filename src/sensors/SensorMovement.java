@@ -1,3 +1,5 @@
+package sensors;
+
 public class SensorMovement extends Sensor{
     boolean bastardMoving;
 

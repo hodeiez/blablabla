@@ -1,3 +1,5 @@
+package sensors;
+
 public class SensorOpenClose extends Sensor{
     boolean open;
 
