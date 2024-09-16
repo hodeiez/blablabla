@@ -23,14 +23,27 @@ public class Menu {
         return scanner.nextLine();
     }
     public void operate() {
-        switch (getUserInput()) {
-            case "1": getConfigurationInfo("Böllnas \uD83D\uDE00");
-            case "2": alarmOperator.deActivateAll();
-            default: showMainMenu();
+        String userInput = getUserInput();
+
+        switch (userInput) {
+            case "1": getConfigurationInfo("Böllnas \uD83D\uDE00"); break;
+            case "2": alarmOperator.deActivateAll();break;
+            case "3": getDeactivateRoomMenu();break;
+            default: showMainMenu();break;
+
         }
     }
+
+    private void getDeactivateRoomMenu() {
+        System.out.println("type in the room you want to deactivate");
+        String userInput = getUserInput();
+        alarmOperator.deActivateAllSensorsInRoom("Böllnas \uD83D\uDE00",userInput);
+        System.out.println("room with id: " + userInput + " has been deactivated");
+    }
+
     public void execute() {
         operate();
+        showMainMenu();
     }
 
 }
