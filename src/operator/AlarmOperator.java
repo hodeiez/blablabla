@@ -1,7 +1,10 @@
+package operator;
+
 import house.House;
 import sensors.Sensor;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AlarmOperator {
     List<House> houses;
@@ -58,4 +61,9 @@ public class AlarmOperator {
     }
 
 
+    public String getHouseInfo(String houseId) {
+        return this.getHouse(houseId).getHouseId() + "\n" + this.getHouse(houseId).getSensors().stream().map(s -> {
+         return "sensor type: " + s.getSensorType() + ", with id: " + s.getIdentification() + " ,is activated: " + s.isActivated() + ", placedAt: " + s.getPlacedAt() + "\n";
+        }).collect(Collectors.joining());
+    }
 }
